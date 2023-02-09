@@ -1,0 +1,172 @@
+/*body alanı tanımlamalar ve ilk arkaplan verme*/
+body {
+    --color-primary: rgba(159, 197, 197, 0.9);
+    /*birincil ana renk*/
+    --color-primary-dark: rgba(41, 146, 118, 0.7);
+    /*birincil ana renk koyu*/
+    --color-secondary: rgb(22, 41, 150);
+    /*ikincil renk*/
+    --color-error: rgb(210, 40, 40);
+    /*hata verdiğinde bu renge dönüşsün*/
+    --color-success: rgba(90, 150, 40, 0, 7);
+    /*başarılı olduğunda bu rengi versin*/
+    --border-radius: 4px;
+    /* köşlerin kıvrımı farklı iki form olduğu için bu renkleri ve kıvrımı yukarda tanıtıyoruz ve birçok yerde kullanacağız*/
+    background: linear-gradient(to right, var(--color-primary), var(--color-primary-dark)), url(./bg.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    /* yapış yani*/
+    height: 100vh;
+    /* biz görmesek bile boşluk bırakıyor içine gelen elemenı sarmalıyor
+    sen bir elemanın her yeri kaplamasını istiyorsan böyle yapman lazım 100% anlamına geliyor*/
+    display: flex;
+    /*içindeki elamın komumlandırma özelliğini 
+    açıyor. olduğu kadar alan kapla diğeri yanyana gelsin*/
+    align-items: center;
+    /*dikey hizalama */
+    justify-content: center;
+    /*yatay hizalama*/
+    font: size 20px;
+
+}
+
+.container {
+    /*conteinar bir class div bölümlenmiş bir alan*/
+    width: 400px;
+    max-width: 400px;
+    max-height: 400px;
+    background-color: white;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+    /* dışına veriyor gölge ilk değer yukarıdan aşağı ikinci değer soldan sağa gölge vermeyi sağlıyor 00 köşeye denk geliyor */
+    border-radius: var(--border-radius);
+    /* yukardaki border radiusu çağırdık*/
+    padding: 2rem;
+    /*varsayılanın 2 katı iç boşluk verdi*/
+    margin: 1rem;
+    /*herşeye bir rem uzak olsun köşelere olan boşluk*/
+
+}
+
+/*form alanı*/
+.form__title {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.form__message {
+    text-align: center;
+    margin-bottom: 1rem;
+    /*altına birşey gldiğinde boşluk bırak*/
+}
+
+.form__message--error {
+    color: var(--color-error);
+}
+
+.form__input__group {
+    margin-bottom: 1rem;
+
+
+}
+
+.form__input {
+    display: block;
+    /*tamamen o satırı kaplayacak*/
+    width: 100%;
+    /*genişlik yüzde yüz büyüdü*/
+    padding: 0.7rem;
+    box-sizing: border-box;
+    /*dışarıya taşma kendi içinde büyümeyi sağla dedim*/
+    border-radius: var(--border-radius);
+    /*kenar kıvrımları 4 px değiştirdik*/
+    border: 1px solid #ddd;
+    /*İnputların kenar çizgileri gırimsi birşey oldu*/
+    outline: none;
+    /* dışarda bir çizgi vermesi*/
+    background-color: #eee;
+    /*inputların içinin rengi ayarlandı*/
+
+    transition: background 0.3s, border-color 0.3s;
+    /*aldığı özellikleri ne kadar sürede tutsun*/
+
+}
+
+.form__input:focus {
+    border-color: var(--color-primary);
+    /* sözde sınıf . olduğunda focus olduğunda 
+    kenarlar yukarıda belirttiğimiz renk içi beyaz olsun dedik*/
+    background-color: #fff;
+}
+
+.form__input-error-message {
+    margin-top: 0.5rem;
+    /*yapışmasın*/
+    font-size: 0.85rem;
+    /* küçülttük*/
+    color: var(--color-error);
+}
+
+.Form__button {
+    width: 100%;
+    /*genişliği yüzde yüz kaplasın*/
+    padding: 1rem 2rem;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: var(--border-radius);
+    background-color: var(--color-primary);
+}
+
+.Form__button:hover {
+
+    background-color: var(--color-primary-dark);
+    /*üzerine geldiğinde rengi değişecek*/
+
+}
+
+.Form__button:active {
+    transform: scale(0.98);
+
+    /*üzerine geldiğinde küçülecek*/
+
+}
+
+.form__text {
+    text-align: center;
+
+}
+
+.form__link {
+    text-decoration: none;
+    color: var(--color-secondary);
+    cursor: pointer;
+    /*üzerine gelince el çıksın*/
+
+}
+
+.form__link:hover {
+    text-decoration: underline;
+    /* üzerine geldiğinde alt çizgi*/
+}
+
+.container,
+.form__input,
+.Form__button {
+
+    font: 500 1 rem 'Inter', sans-serif;
+}
+
+.form>*:first-child {
+
+    /*bu form elelmaları içinde olan tüm * elemanlar içinden ilk elemanın yukarıya mesafesi 0 dedik fazla 
+boşluk bırakmıştı */
+    margin-top: 0;
+
+}
+
+.form>* :last-child {
+    margin: bottom 0;
+}
